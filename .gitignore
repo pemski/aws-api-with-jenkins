@@ -168,3 +168,4 @@ ServiceFabricBackup/
 MigrationBackup/
 
 **/.terraform
+guid-lambda.zip
