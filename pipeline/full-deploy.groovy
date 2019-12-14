@@ -17,10 +17,17 @@ pipeline {
             }
         }
         stage('Deploy Lambda Api') {
+            environment {
+                planFile = 'lambda-plan'
+            }
             steps {
-                powershell 'echo "Deploying Lambda api..."'
-
-                powrshell 'echo "Lambda api deployed."'
+                dir('./infrastructure/lambda'){
+                    powershell 'echo "Deploying Lambda api..."'
+                    powershell 'terraform init'
+                    powershell 'terraform plan -out="${planFile}"'
+                    powershell 'terraform apply "${planFile}"'
+                    powershell 'echo "Lambda api deployed."'
+                }
             }
         }
     }
