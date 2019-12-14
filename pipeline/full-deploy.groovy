@@ -10,8 +10,8 @@ pipeline {
                 dir('./infrastructure/alb') {
                     powershell 'echo "Deploying ALB..."'
                     powershell 'terraform init'
-                    powershell 'terraform plan -var ingress_cidr=178.37.89.16/32 -out="${planFile}"'
-                    powershell 'terraform apply "${planFile}"'
+                    powershell "terraform plan -var ingress_cidr=178.37.89.16/32 -out=${planFile}"
+                    powershell "terraform apply ${planFile}"
                     powershell 'echo "ALB deployed."'
                 }
             }
@@ -24,8 +24,8 @@ pipeline {
                 dir('./infrastructure/lambda'){
                     powershell 'echo "Deploying Lambda api..."'
                     powershell 'terraform init'
-                    powershell 'terraform plan -out="${planFile}"'
-                    powershell 'terraform apply "${planFile}"'
+                    powershell "terraform plan -out=${planFile}"
+                    powershell "terraform apply ${planFile}"
                     powershell 'echo "Lambda api deployed."'
                 }
             }
