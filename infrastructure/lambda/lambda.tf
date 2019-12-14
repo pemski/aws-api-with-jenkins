@@ -50,7 +50,7 @@ resource "aws_iam_policy" "guid_api_lambda_logging" {
 EOF
 }
 
-resource "aws_iam_policy_attachment" "attach_lambda_logging" {
+resource "aws_iam_role_policy_attachment" "attach_lambda_logging" {
   role       = aws_iam_role.iam_for_lambda.name
   policy_arn = aws_iam_policy.guid_api_lambda_logging.arn
 }
