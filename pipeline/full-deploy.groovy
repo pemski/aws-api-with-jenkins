@@ -2,8 +2,9 @@ pipeline {
     agent any
     environment {
         baseDir = """${powershell(
-            script: '(Get-Item -Path ".").FullName'
-        )}"""
+            returnStdout: true,
+            script: '(Get-Item -Path ".\").FullName'
+        ).trim()}"""
     }
     
     stages {
