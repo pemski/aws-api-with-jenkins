@@ -7,12 +7,13 @@ pipeline {
                 planFile = 'alb-plan'
             }
             steps {
-                powershell 'echo "Deploying ALB..."'
-                powershell 'cd "./infrastructure/alb"'
-                powershell 'terraform init'
-                powershell 'terraform plan -var ingress_cidr=178.37.89.16/32 -out="${planFile}"'
-                powershell 'terraform apply "${planFile}"'
-                powershell 'echo "ALB deployed."'
+                dir('./infrastructure/alb') {
+                    powershell 'echo "Deploying ALB..."'
+                    powershell 'terraform init'
+                    powershell 'terraform plan -var ingress_cidr=178.37.89.16/32 -out="${planFile}"'
+                    powershell 'terraform apply "${planFile}"'
+                    powershell 'echo "ALB deployed."'
+                }
             }
         }
         stage('Deploy Lambda Api') {
