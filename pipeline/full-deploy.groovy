@@ -2,6 +2,13 @@ pipeline {
     agent any
     
     stages {
+        stage('Create Lambda package') {
+            steps {
+                powershell 'echo "Creating a zip package with Lambda sources..."'
+                powershell './pack-lambda.ps1'
+                powershell 'echo "Zip package for Lambda created."'
+            }
+        }
         stage('Deploy ALB') {
             environment {
                 planFile = 'alb-plan'
