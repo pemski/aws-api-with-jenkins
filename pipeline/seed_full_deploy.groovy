@@ -14,7 +14,7 @@ pipelineJob('aws_guid_api/aws_guid_api_deployment') {
                     }
                 }
                 lightweight(false)
-                scriptPath('pipeline/full-deploy.groovy')
+                scriptPath('pipeline/full_deploy.groovy')
             }
         }
     }
