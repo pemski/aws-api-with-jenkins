@@ -1,6 +1,6 @@
 pipelineJob('aws_guid_api/aws_guid_api_deployment') {
     definition {
-        description 'Deploys the guid api resources in AWS.'
+        description('Deploys the guid api resources in AWS.')
         parameters {
             stringParam('BRANCH', 'jenkinsfile', 'Name of the repository branch to run sources from.')
             stringParam('ingress_cidr', '', 'CIDR value to be provided to allowed incoming traffic to ALB security group')
