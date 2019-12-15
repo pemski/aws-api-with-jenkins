@@ -1,4 +1,4 @@
-pipelineJob('aws_guid_api/aws_guid_api_deployment') {
+pipelineJob('aws_guid_api/full_deployment') {
     definition {
         description('Deploys the guid api resources in AWS.')
         parameters {

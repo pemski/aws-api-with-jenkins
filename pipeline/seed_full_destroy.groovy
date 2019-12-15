@@ -1,4 +1,4 @@
-pipelineJob('aws_guid_api/aws_guid_api_destroy') {
+pipelineJob('aws_guid_api/full_destroy') {
     definition {
         description('Destroys the guid api resources in AWS.')
         parameters{

@@ -1,6 +1,5 @@
 pipeline {
     agent any
-    
     stages {
         stage('Destroy Lambda Api') {
             steps {
